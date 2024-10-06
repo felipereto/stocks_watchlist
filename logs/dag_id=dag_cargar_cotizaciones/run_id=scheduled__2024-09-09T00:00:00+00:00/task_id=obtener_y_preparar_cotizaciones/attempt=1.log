@@ -1,0 +1,386 @@
+[2024-10-06T18:07:33.401+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T18:07:33.439+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T18:07:33.455+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T18:07:33.458+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-06T18:07:33.501+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-09 00:00:00+00:00
+[2024-10-06T18:07:33.529+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=478) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-06T18:07:33.533+0000] {standard_task_runner.py:72} INFO - Started process 517 to run task
+[2024-10-06T18:07:33.530+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-09T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmpkvp2idzb']
+[2024-10-06T18:07:33.535+0000] {standard_task_runner.py:105} INFO - Job 11: Subtask obtener_y_preparar_cotizaciones
+[2024-10-06T18:07:33.635+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-06T18:07:33.916+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-09T00:00:00+00:00'
+[2024-10-06T18:07:33.920+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T18:07:33.960+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/load_data_to_redshift.py", line 9, in load_data_to_redshift
+    engine =connect_to_redshift()
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/connect_to_redshift.py", line 5, in connect_to_redshift
+    with open('redshift_credentials.json','r') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'redshift_credentials.json'
+[2024-10-06T18:07:34.022+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-09T00:00:00+00:00, execution_date=20240909T000000, start_date=20241006T180733, end_date=20241006T180734
+[2024-10-06T18:07:34.057+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T18:07:34.059+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 11 for task obtener_y_preparar_cotizaciones ([Errno 2] No such file or directory: 'redshift_credentials.json'; 517)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/load_data_to_redshift.py", line 9, in load_data_to_redshift
+    engine =connect_to_redshift()
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/connect_to_redshift.py", line 5, in connect_to_redshift
+    with open('redshift_credentials.json','r') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'redshift_credentials.json'
+[2024-10-06T18:07:34.117+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2024-10-06T18:07:34.138+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T18:07:34.162+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-06T20:33:52.166+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T20:33:52.217+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T20:33:52.244+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T20:33:52.248+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-06T20:33:52.296+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-09 00:00:00+00:00
+[2024-10-06T20:33:52.315+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1893) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-06T20:33:52.319+0000] {standard_task_runner.py:72} INFO - Started process 1946 to run task
+[2024-10-06T20:33:52.320+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-09T00:00:00+00:00', '--job-id', '98', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmpwdsyimoz']
+[2024-10-06T20:33:52.327+0000] {standard_task_runner.py:105} INFO - Job 98: Subtask obtener_y_preparar_cotizaciones
+[2024-10-06T20:33:52.440+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-06T20:33:52.571+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-09T00:00:00+00:00'
+[2024-10-06T20:33:52.574+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T20:33:52.677+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-06T20:33:52.679+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-06T20:33:54.666+0000] {logging_mixin.py:190} INFO - 2024-09-09
+[2024-10-06T20:33:54.709+0000] {logging_mixin.py:190} INFO - 2024-09-10
+[2024-10-06T20:33:54.763+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:33:54.774+0000] {cache.py:336} INFO - Failed to create CookieCache, reason: Error creating CookieCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. CookieCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:33:54.777+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:33:56.106+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T20:33:56.125+0000] {logging_mixin.py:190} WARNING - [****************      33%                       ]  2 of 6 completed
+[2024-10-06T20:33:56.153+0000] {logging_mixin.py:190} WARNING - [**********************50%                       ]  3 of 6 completed
+[2024-10-06T20:33:56.167+0000] {logging_mixin.py:190} WARNING - [**********************67%*******                ]  4 of 6 completed
+[2024-10-06T20:33:56.191+0000] {logging_mixin.py:190} WARNING - [**********************83%***************        ]  5 of 6 completed
+[2024-10-06T20:33:56.418+0000] {logging_mixin.py:190} WARNING - [*********************100%***********************]  6 of 6 completed
+[2024-10-06T20:33:56.425+0000] {warnings.py:112} WARNING - /opt/***/dags/stocks_prices_daily.py:10: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
+
+[2024-10-06T20:33:57.120+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-10-06T20:33:57.233+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T20:33:57.234+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-09T00:00:00+00:00, execution_date=20240909T000000, start_date=20241006T203352, end_date=20241006T203357
+[2024-10-06T20:33:57.266+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T20:33:57.293+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T20:33:57.294+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-06T20:35:21.939+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T20:35:22.021+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T20:35:22.062+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T20:35:22.063+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-06T20:35:22.153+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-09 00:00:00+00:00
+[2024-10-06T20:35:22.171+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2269) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-06T20:35:22.175+0000] {standard_task_runner.py:72} INFO - Started process 2292 to run task
+[2024-10-06T20:35:22.178+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-09T00:00:00+00:00', '--job-id', '129', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmpvh55sa9g']
+[2024-10-06T20:35:22.193+0000] {standard_task_runner.py:105} INFO - Job 129: Subtask obtener_y_preparar_cotizaciones
+[2024-10-06T20:35:22.407+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-06T20:35:22.842+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-09T00:00:00+00:00'
+[2024-10-06T20:35:22.863+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T20:35:22.920+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-06T20:35:22.922+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-06T20:35:24.372+0000] {logging_mixin.py:190} INFO - 2024-09-09
+[2024-10-06T20:35:24.373+0000] {logging_mixin.py:190} INFO - 2024-09-10
+[2024-10-06T20:35:24.386+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:35:24.387+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:35:24.388+0000] {cache.py:336} INFO - Failed to create CookieCache, reason: Error creating CookieCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. CookieCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:35:25.929+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T20:35:25.924+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T20:35:25.936+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T20:35:25.953+0000] {logging_mixin.py:190} WARNING - [**********************67%*******                ]  4 of 6 completed
+[2024-10-06T20:35:25.958+0000] {logging_mixin.py:190} WARNING - [**********************83%***************        ]  5 of 6 completed
+[2024-10-06T20:35:25.961+0000] {logging_mixin.py:190} WARNING - [*********************100%***********************]  6 of 6 completed
+[2024-10-06T20:35:25.995+0000] {warnings.py:112} WARNING - /opt/***/dags/stocks_prices_daily.py:10: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
+
+[2024-10-06T20:35:26.712+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-10-06T20:35:26.725+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T20:35:26.725+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-09T00:00:00+00:00, execution_date=20240909T000000, start_date=20241006T203522, end_date=20241006T203526
+[2024-10-06T20:35:26.746+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T20:35:26.774+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T20:35:26.777+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-06T20:42:36.922+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T20:42:36.984+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T20:42:37.008+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T20:42:37.012+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-06T20:42:37.057+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-09 00:00:00+00:00
+[2024-10-06T20:42:37.068+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2720) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-06T20:42:37.072+0000] {standard_task_runner.py:72} INFO - Started process 2790 to run task
+[2024-10-06T20:42:37.071+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-09T00:00:00+00:00', '--job-id', '170', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmpply_h0u4']
+[2024-10-06T20:42:37.077+0000] {standard_task_runner.py:105} INFO - Job 170: Subtask obtener_y_preparar_cotizaciones
+[2024-10-06T20:42:37.182+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-06T20:42:37.395+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-09T00:00:00+00:00'
+[2024-10-06T20:42:37.398+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T20:42:37.472+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-06T20:42:37.474+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-06T20:42:39.026+0000] {logging_mixin.py:190} INFO - 2024-09-09
+[2024-10-06T20:42:39.027+0000] {logging_mixin.py:190} INFO - 2024-09-10
+[2024-10-06T20:42:39.030+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:42:39.030+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:42:39.031+0000] {cache.py:336} INFO - Failed to create CookieCache, reason: Error creating CookieCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. CookieCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T20:42:40.506+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T20:42:40.510+0000] {logging_mixin.py:190} WARNING - [****************      33%                       ]  2 of 6 completed
+[2024-10-06T20:42:40.756+0000] {logging_mixin.py:190} WARNING - [**********************50%                       ]  3 of 6 completed
+[2024-10-06T20:42:40.835+0000] {logging_mixin.py:190} WARNING - [**********************67%*******                ]  4 of 6 completed
+[2024-10-06T20:42:40.838+0000] {logging_mixin.py:190} WARNING - [**********************83%***************        ]  5 of 6 completed
+[2024-10-06T20:42:40.838+0000] {logging_mixin.py:190} WARNING - [*********************100%***********************]  6 of 6 completed
+[2024-10-06T20:42:40.844+0000] {warnings.py:112} WARNING - /opt/***/dags/stocks_prices_daily.py:10: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
+
+[2024-10-06T20:42:41.867+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-10-06T20:42:41.890+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T20:42:41.891+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-09T00:00:00+00:00, execution_date=20240909T000000, start_date=20241006T204236, end_date=20241006T204241
+[2024-10-06T20:42:41.944+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T20:42:41.970+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T20:42:41.971+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-06T21:00:52.019+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T21:00:52.245+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T21:00:52.286+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T21:00:52.290+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-06T21:00:52.427+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-09 00:00:00+00:00
+[2024-10-06T21:00:52.449+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3347) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-06T21:00:52.481+0000] {standard_task_runner.py:72} INFO - Started process 3413 to run task
+[2024-10-06T21:00:52.523+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-09T00:00:00+00:00', '--job-id', '207', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmp3wwkzmmb']
+[2024-10-06T21:00:52.537+0000] {standard_task_runner.py:105} INFO - Job 207: Subtask obtener_y_preparar_cotizaciones
+[2024-10-06T21:00:53.037+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-06T21:00:53.363+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-09T00:00:00+00:00'
+[2024-10-06T21:00:53.391+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T21:00:53.501+0000] {logging_mixin.py:190} INFO - 2024-09-09
+[2024-10-06T21:00:53.505+0000] {logging_mixin.py:190} INFO - 2024-09-10
+[2024-10-06T21:00:53.511+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:00:53.513+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:00:53.514+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:00:53.515+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:00:53.518+0000] {cache.py:336} INFO - Failed to create CookieCache, reason: Error creating CookieCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. CookieCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:00:55.732+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T21:00:55.746+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T21:00:55.782+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T21:00:55.788+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T21:00:55.788+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T21:00:55.797+0000] {logging_mixin.py:190} WARNING - [*********************100%***********************]  6 of 6 completed
+[2024-10-06T21:00:55.827+0000] {warnings.py:112} WARNING - /opt/***/dags/stocks_prices_daily.py:10: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
+
+[2024-10-06T21:00:55.904+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-06T21:00:55.908+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-06T21:01:01.638+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/stocks_to_redshift.py", line 13, in stocks_to_redshift
+    load_data_to_redshift(df, table_name)
+  File "/opt/airflow/dags/load_data_to_redshift.py", line 26, in load_data_to_redshift
+    psycopg2.extras.execute_values(cur, query, data)
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.UndefinedTable: relation "2024_felipe_miguel_reto_schema.otra_tabla" does not exist
+
+[2024-10-06T21:01:01.688+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-09T00:00:00+00:00, execution_date=20240909T000000, start_date=20241006T210052, end_date=20241006T210101
+[2024-10-06T21:01:01.708+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T21:01:01.710+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 207 for task obtener_y_preparar_cotizaciones (relation "2024_felipe_miguel_reto_schema.otra_tabla" does not exist
+; 3413)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/stocks_to_redshift.py", line 13, in stocks_to_redshift
+    load_data_to_redshift(df, table_name)
+  File "/opt/airflow/dags/load_data_to_redshift.py", line 26, in load_data_to_redshift
+    psycopg2.extras.execute_values(cur, query, data)
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.UndefinedTable: relation "2024_felipe_miguel_reto_schema.otra_tabla" does not exist
+
+[2024-10-06T21:01:01.730+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2024-10-06T21:01:01.761+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T21:01:01.762+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-06T21:03:46.028+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T21:03:46.060+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T21:03:46.068+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [queued]>
+[2024-10-06T21:03:46.070+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-06T21:03:46.108+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-09 00:00:00+00:00
+[2024-10-06T21:03:46.137+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3791) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-06T21:03:46.145+0000] {standard_task_runner.py:72} INFO - Started process 3857 to run task
+[2024-10-06T21:03:46.156+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-09T00:00:00+00:00', '--job-id', '249', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmpcwr7avvo']
+[2024-10-06T21:03:46.173+0000] {standard_task_runner.py:105} INFO - Job 249: Subtask obtener_y_preparar_cotizaciones
+[2024-10-06T21:03:46.339+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-09T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-06T21:03:46.632+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-09T00:00:00+00:00'
+[2024-10-06T21:03:46.633+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T21:03:46.678+0000] {logging_mixin.py:190} INFO - 2024-09-09
+[2024-10-06T21:03:46.679+0000] {logging_mixin.py:190} INFO - 2024-09-10
+[2024-10-06T21:03:46.688+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:03:46.689+0000] {cache.py:336} INFO - Failed to create CookieCache, reason: Error creating CookieCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. CookieCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:03:46.694+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-06T21:03:48.004+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-06T21:03:48.024+0000] {logging_mixin.py:190} WARNING - [****************      33%                       ]  2 of 6 completed
+[2024-10-06T21:03:48.027+0000] {logging_mixin.py:190} WARNING - [**********************50%                       ]  3 of 6 completed
+[2024-10-06T21:03:48.030+0000] {logging_mixin.py:190} WARNING - [**********************50%                       ]  3 of 6 completed
+[2024-10-06T21:03:48.033+0000] {logging_mixin.py:190} WARNING - [**********************50%                       ]  3 of 6 completed
+[2024-10-06T21:03:48.034+0000] {logging_mixin.py:190} WARNING - [*********************100%***********************]  6 of 6 completed
+[2024-10-06T21:03:48.041+0000] {warnings.py:112} WARNING - /opt/***/dags/stocks_prices_daily.py:10: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
+
+[2024-10-06T21:03:48.052+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-06T21:03:48.052+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-06T21:03:50.365+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-10-06T21:03:50.380+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T21:03:50.381+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-09T00:00:00+00:00, execution_date=20240909T000000, start_date=20241006T210346, end_date=20241006T210350
+[2024-10-06T21:03:50.435+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T21:03:50.449+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
