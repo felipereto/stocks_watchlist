@@ -6,3 +6,4 @@ yfinance==0.2.43
 SQLAlchemy==1.4.53
 sqlalchemy-redshift==0.8.14
 psycopg2-binary=2.9
+pytest==8.3.3
