@@ -1,15 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.utils.dates import days_ago
-import pandas as pd
-from sqlalchemy import create_engine
 from datetime import datetime, timedelta
 from stocks_to_redshift import stocks_to_redshift
-from airflow.hooks.base import BaseHook
-import yfinance as yf
-from datetime import date
-import json
-
 
 # Default arguments
 default_args = {
@@ -20,7 +12,6 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
     'catchup': True
 }
-
 
 with DAG(
     'dag_cargar_cotizaciones',
