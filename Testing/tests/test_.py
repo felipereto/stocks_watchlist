@@ -1,5 +1,6 @@
 import pandas as pd
-from dags.stocks_prices_daily import get_daily_stock_data  
+from dags.stocks_prices_daily import get_daily_stock_data
+
 
 def test_get_daily_stock_data(mocker):
     # Defino el DataFrame esperado

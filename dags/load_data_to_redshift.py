@@ -4,7 +4,7 @@ from airflow.hooks.base import BaseHook
 
 
 def load_data_to_redshift(df, tabla):
-    try: 
+    try:
         redshift_conn = BaseHook.get_connection('redshift_conn')
         print(redshift_conn)
         conn = psycopg2.connect(

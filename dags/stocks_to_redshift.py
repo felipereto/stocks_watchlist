@@ -7,7 +7,7 @@ def stocks_to_redshift(**context):
     print(start_date)
     end_date = context['data_interval_end'].strftime('%Y-%m-%d')
     print(end_date)
-    
+
     tickers = [
         "BBAR.BA", "CEPU.BA", "AAPL.BA", "TGNO4.BA", "PAMP.BA", "AMZN.BA"
     ]
