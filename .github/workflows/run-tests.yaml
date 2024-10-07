@@ -27,5 +27,5 @@ jobs:
 
       - name: Run pytest
         run: |
-          cd testing
+          cd Testing
           poetry run pytest tests
