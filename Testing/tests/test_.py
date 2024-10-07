@@ -1,4 +1,3 @@
-import pytest
 import pandas as pd
 from dags.stocks_prices_daily import get_daily_stock_data  
 
