@@ -15,7 +15,7 @@ def get_daily_stock_data(start_date, end_date, tickers):
         stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
 
     stacked_data.rename(columns={'Adj Close': 'Adj_Close'}, inplace=True)
- 
+
     column_order = ['Date', 'Ticker', 'Adj_Close', 'Close', 'High', 'Low', 'Open', 'Volume']
     stacked_data = stacked_data[[col for col in column_order if col in stacked_data.columns]]
 

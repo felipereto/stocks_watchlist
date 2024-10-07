@@ -27,4 +27,3 @@ with DAG(
     )
 
     obtener_cotizaciones_task
- 
