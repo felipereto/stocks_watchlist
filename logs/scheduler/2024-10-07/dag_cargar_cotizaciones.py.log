@@ -2623,3 +2623,17 @@
 [2024-10-07T15:38:32.299+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:38:32.299+0000] {dag.py:3229} INFO - Sync 1 DAGs
 [2024-10-07T15:38:32.314+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:38:32.314+0000] {dag.py:4156} INFO - Setting next_dagrun for dag_cargar_cotizaciones to 2024-10-07 00:00:00+00:00, run_after=2024-10-08 00:00:00+00:00
 [2024-10-07T15:38:32.323+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_cargar_cotizaciones.py took 0.421 seconds
+[2024-10-07T15:39:02.674+0000] {processor.py:186} INFO - Started process (PID=3081) to work on /opt/airflow/dags/dag_cargar_cotizaciones.py
+[2024-10-07T15:39:02.676+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_cargar_cotizaciones.py for tasks to queue
+[2024-10-07T15:39:02.681+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:39:02.681+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/dag_cargar_cotizaciones.py
+[2024-10-07T15:39:03.005+0000] {processor.py:925} INFO - DAG(s) 'dag_cargar_cotizaciones' retrieved from /opt/airflow/dags/dag_cargar_cotizaciones.py
+[2024-10-07T15:39:03.024+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:39:03.024+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2024-10-07T15:39:03.037+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:39:03.037+0000] {dag.py:4156} INFO - Setting next_dagrun for dag_cargar_cotizaciones to 2024-10-07 00:00:00+00:00, run_after=2024-10-08 00:00:00+00:00
+[2024-10-07T15:39:03.048+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_cargar_cotizaciones.py took 0.384 seconds
+[2024-10-07T15:39:33.378+0000] {processor.py:186} INFO - Started process (PID=3089) to work on /opt/airflow/dags/dag_cargar_cotizaciones.py
+[2024-10-07T15:39:33.379+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_cargar_cotizaciones.py for tasks to queue
+[2024-10-07T15:39:33.383+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:39:33.382+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/dag_cargar_cotizaciones.py
+[2024-10-07T15:39:33.687+0000] {processor.py:925} INFO - DAG(s) 'dag_cargar_cotizaciones' retrieved from /opt/airflow/dags/dag_cargar_cotizaciones.py
+[2024-10-07T15:39:33.705+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:39:33.705+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2024-10-07T15:39:33.730+0000] {logging_mixin.py:190} INFO - [2024-10-07T15:39:33.730+0000] {dag.py:4156} INFO - Setting next_dagrun for dag_cargar_cotizaciones to 2024-10-07 00:00:00+00:00, run_after=2024-10-08 00:00:00+00:00
+[2024-10-07T15:39:33.740+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_cargar_cotizaciones.py took 0.369 seconds
