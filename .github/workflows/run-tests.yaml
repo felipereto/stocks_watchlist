@@ -1,4 +1,4 @@
-name: Python application test with pytest # test
+name: Python application test with pytest
 
 on: [push, pull_request]
 
@@ -16,16 +16,24 @@ jobs:
         with:
           python-version: 3.10
 
+      # Instala dependencias del sistema (opcional)
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3-dev libpq-dev build-essential
+
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
 
+      - name: Configure Poetry to use the correct Python version
+        run: |
+          poetry env use python3.10
+
       - name: Install dependencies with poetry
         run: |
-          cd Testing
           poetry install
 
       - name: Run pytest
         run: |
-          cd Testing
           poetry run pytest tests
