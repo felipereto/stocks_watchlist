@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies with poetry
         run: |
-          cd testing
+          cd Testing
           poetry install
 
       - name: Run pytest
