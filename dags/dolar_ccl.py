@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-from datetime import datetime
 
 def obtener_datos_dolar(period_date):
     headers = {

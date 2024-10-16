@@ -1,13 +1,10 @@
-import pytest
 import pandas as pd
-from unittest import mock
-import requests
-from dags.dolar_ccl import obtener_datos_dolar 
+from dags.dolar_ccl import obtener_datos_dolar
 
 def test_obtener_datos_dolar(mocker):
     mock_data = [
         ['fecha', 'DOLAR CCL'],
-        ['14/10/2024',1180.14]
+        ['14/10/2024', 1180.14]
     ]
 
     mock_response = mocker.patch('requests.get')
@@ -17,7 +14,7 @@ def test_obtener_datos_dolar(mocker):
     df = obtener_datos_dolar(period_date)
 
     df = df.reset_index(drop=True)
-    
+
     expected_df = pd.DataFrame({
         'fecha': ['2024-10-14'],
         'dolar_ccl': [1180.14]
