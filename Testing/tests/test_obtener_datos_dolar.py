@@ -1,6 +1,7 @@
 import pandas as pd
 from dags.dolar_ccl import obtener_datos_dolar
 
+
 def test_obtener_datos_dolar(mocker):
     mock_data = [
         ['fecha', 'DOLAR CCL'],
