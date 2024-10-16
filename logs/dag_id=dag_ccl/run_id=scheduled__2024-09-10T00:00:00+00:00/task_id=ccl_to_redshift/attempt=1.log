@@ -1,0 +1,30 @@
+[2024-10-14T17:30:46.323+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-14T17:30:48.191+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_ccl.ccl_to_redshift scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-10-14T17:30:50.129+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_ccl.ccl_to_redshift scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-10-14T17:30:50.280+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-14T17:30:51.857+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): ccl_to_redshift> on 2024-09-10 00:00:00+00:00
+[2024-10-14T17:30:52.937+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=19101) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-14T17:30:53.071+0000] {standard_task_runner.py:72} INFO - Started process 19138 to run task
+[2024-10-14T17:30:52.984+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_ccl', 'ccl_to_redshift', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '294', '--raw', '--subdir', 'DAGS_FOLDER/dag_ccl.py', '--cfg-path', '/tmp/tmpkddhdx1p']
+[2024-10-14T17:30:53.150+0000] {standard_task_runner.py:105} INFO - Job 294: Subtask ccl_to_redshift
+[2024-10-14T17:31:01.660+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_ccl.ccl_to_redshift scheduled__2024-09-10T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-14T17:31:01.547+0000] {job.py:229} INFO - Heartbeat recovered after 23.06 seconds
+[2024-10-14T17:31:16.280+0000] {job.py:229} INFO - Heartbeat recovered after 15.15 seconds
+[2024-10-14T17:31:33.964+0000] {job.py:229} INFO - Heartbeat recovered after 18.64 seconds
+[2024-10-14T17:31:45.559+0000] {job.py:229} INFO - Heartbeat recovered after 12.86 seconds
+[2024-10-14T17:31:57.242+0000] {job.py:229} INFO - Heartbeat recovered after 11.88 seconds
+[2024-10-14T17:32:12.911+0000] {job.py:229} INFO - Heartbeat recovered after 16.55 seconds
+[2024-10-14T17:32:23.739+0000] {job.py:229} INFO - Heartbeat recovered after 10.92 seconds
+[2024-10-14T17:32:39.529+0000] {job.py:229} INFO - Heartbeat recovered after 16.22 seconds
+[2024-10-14T17:33:00.203+0000] {job.py:229} INFO - Heartbeat recovered after 22.04 seconds
+[2024-10-14T17:33:42.212+0000] {job.py:229} INFO - Heartbeat recovered after 14.54 seconds
+[2024-10-14T17:33:52.549+0000] {job.py:229} INFO - Heartbeat recovered after 11.64 seconds
+[2024-10-14T17:34:02.391+0000] {job.py:229} INFO - Heartbeat recovered after 10.93 seconds
+[2024-10-14T17:34:04.018+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-10-14T17:34:04.101+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-14T17:34:04.636+0000] {process_utils.py:132} INFO - Sending 15 to group 19138. PIDs of all processes in the group: [19138]
+[2024-10-14T17:34:05.522+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 19138
+[2024-10-14T17:34:08.450+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=19138, status='terminated', exitcode=<Negsignal.SIGTERM: -15>, started='17:30:52') (19138) terminated with exit code -15
+[2024-10-14T17:34:11.961+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics

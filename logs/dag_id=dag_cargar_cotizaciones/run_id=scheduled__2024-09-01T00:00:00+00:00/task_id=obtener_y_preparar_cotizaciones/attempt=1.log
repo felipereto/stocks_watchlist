@@ -303,3 +303,41 @@ FileNotFoundError: [Errno 2] No such file or directory: 'redshift_credentials.js
 [2024-10-06T21:03:48.447+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
 [2024-10-06T21:03:48.471+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2024-10-06T21:03:48.472+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-15T18:15:40.610+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-15T18:15:40.654+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2024-10-15T18:15:40.672+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2024-10-15T18:15:40.672+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-15T18:15:40.720+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): obtener_y_preparar_cotizaciones> on 2024-09-01 00:00:00+00:00
+[2024-10-15T18:15:40.740+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=449) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-15T18:15:40.749+0000] {standard_task_runner.py:72} INFO - Started process 464 to run task
+[2024-10-15T18:15:40.749+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_cargar_cotizaciones', 'obtener_y_preparar_cotizaciones', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '326', '--raw', '--subdir', 'DAGS_FOLDER/dag_cargar_cotizaciones.py', '--cfg-path', '/tmp/tmp2qs13kno']
+[2024-10-15T18:15:40.765+0000] {standard_task_runner.py:105} INFO - Job 326: Subtask obtener_y_preparar_cotizaciones
+[2024-10-15T18:15:40.956+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_cargar_cotizaciones.obtener_y_preparar_cotizaciones scheduled__2024-09-01T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-15T18:15:41.262+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_cargar_cotizaciones' AIRFLOW_CTX_TASK_ID='obtener_y_preparar_cotizaciones' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2024-10-15T18:15:41.265+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-15T18:15:41.363+0000] {logging_mixin.py:190} INFO - 2024-09-01
+[2024-10-15T18:15:41.365+0000] {logging_mixin.py:190} INFO - 2024-09-02
+[2024-10-15T18:15:41.419+0000] {cache.py:130} INFO - Failed to create TzCache, reason: Error creating TzCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-15T18:15:41.456+0000] {cache.py:336} INFO - Failed to create CookieCache, reason: Error creating CookieCache folder: '/home/***/.cache/py-yfinance' reason: [Errno 13] Permission denied: '/home/***/.cache/py-yfinance'. CookieCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+[2024-10-15T18:15:43.197+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-15T18:15:43.189+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-15T18:15:43.211+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-15T18:15:43.211+0000] {logging_mixin.py:190} WARNING - [                       0%                       ]
+[2024-10-15T18:15:43.304+0000] {logging_mixin.py:190} WARNING - [**********************83%***************        ]  5 of 6 completed
+[2024-10-15T18:15:43.309+0000] {logging_mixin.py:190} WARNING - [*********************100%***********************]  6 of 6 completed
+[2024-10-15T18:15:43.314+0000] {multi.py:171} ERROR - 
+6 Failed downloads:
+[2024-10-15T18:15:43.320+0000] {multi.py:184} ERROR - ['PAMP.BA', 'CEPU.BA', 'TGNO4.BA', 'AMZN.BA', 'AAPL.BA', 'BBAR.BA']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-09-01 -> 2024-09-02)')
+[2024-10-15T18:15:43.425+0000] {warnings.py:112} WARNING - /opt/***/dags/stocks_prices_daily.py:15: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
+  stacked_data = daily_stock_data.stack(level='Ticker').reset_index()
+
+[2024-10-15T18:15:43.806+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-15T18:15:43.807+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-15T18:15:45.251+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-10-15T18:15:45.292+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-15T18:15:45.294+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_cargar_cotizaciones, task_id=obtener_y_preparar_cotizaciones, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20241015T181540, end_date=20241015T181545
+[2024-10-15T18:15:45.341+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-15T18:15:45.384+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-15T18:15:45.388+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
