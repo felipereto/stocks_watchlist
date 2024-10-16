@@ -1,0 +1,40 @@
+[2024-10-14T17:30:31.982+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-14T17:30:32.307+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_ccl.ccl_to_redshift scheduled__2024-09-05T00:00:00+00:00 [queued]>
+[2024-10-14T17:30:32.715+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_ccl.ccl_to_redshift scheduled__2024-09-05T00:00:00+00:00 [queued]>
+[2024-10-14T17:30:32.773+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2024-10-14T17:30:33.646+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): ccl_to_redshift> on 2024-09-05 00:00:00+00:00
+[2024-10-14T17:30:34.706+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=19081) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-14T17:30:34.918+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_ccl', 'ccl_to_redshift', 'scheduled__2024-09-05T00:00:00+00:00', '--job-id', '289', '--raw', '--subdir', 'DAGS_FOLDER/dag_ccl.py', '--cfg-path', '/tmp/tmprfv5xc8s']
+[2024-10-14T17:30:35.048+0000] {standard_task_runner.py:105} INFO - Job 289: Subtask ccl_to_redshift
+[2024-10-14T17:30:35.016+0000] {standard_task_runner.py:72} INFO - Started process 19118 to run task
+[2024-10-14T17:30:37.755+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_ccl.ccl_to_redshift scheduled__2024-09-05T00:00:00+00:00 [running]> on host f03003374728
+[2024-10-14T17:30:42.091+0000] {job.py:229} INFO - Heartbeat recovered after 15.63 seconds
+[2024-10-14T17:31:10.010+0000] {job.py:229} INFO - Heartbeat recovered after 10.90 seconds
+[2024-10-14T17:31:27.273+0000] {job.py:229} INFO - Heartbeat recovered after 18.19 seconds
+[2024-10-14T17:31:40.650+0000] {job.py:229} INFO - Heartbeat recovered after 20.47 seconds
+[2024-10-14T17:31:52.307+0000] {job.py:229} INFO - Heartbeat recovered after 12.11 seconds
+[2024-10-14T17:32:07.271+0000] {job.py:229} INFO - Heartbeat recovered after 15.42 seconds
+[2024-10-14T17:32:24.972+0000] {job.py:229} INFO - Heartbeat recovered after 20.86 seconds
+[2024-10-14T17:32:42.206+0000] {job.py:229} INFO - Heartbeat recovered after 18.54 seconds
+[2024-10-14T17:32:59.577+0000] {job.py:229} INFO - Heartbeat recovered after 17.94 seconds
+[2024-10-14T17:33:09.671+0000] {job.py:229} INFO - Heartbeat recovered after 10.68 seconds
+[2024-10-14T17:33:13.068+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_ccl' AIRFLOW_CTX_TASK_ID='ccl_to_redshift' AIRFLOW_CTX_EXECUTION_DATE='2024-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-05T00:00:00+00:00'
+[2024-10-14T17:33:13.283+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-14T17:33:18.549+0000] {logging_mixin.py:190} INFO - 2024-09-06
+[2024-10-14T17:33:21.385+0000] {job.py:229} INFO - Heartbeat recovered after 12.19 seconds
+[2024-10-14T17:33:31.175+0000] {logging_mixin.py:190} INFO -             0          1
+0       fecha  DOLAR CCL
+1  06/09/2024    1257.91
+[2024-10-14T17:33:38.422+0000] {job.py:229} INFO - Heartbeat recovered after 19.19 seconds
+[2024-10-14T17:33:40.705+0000] {base.py:84} INFO - Retrieving connection 'redshift_conn'
+[2024-10-14T17:33:40.941+0000] {logging_mixin.py:190} INFO - redshift_conn
+[2024-10-14T17:33:42.555+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-10-14T17:33:43.871+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-10-14T17:33:44.734+0000] {process_utils.py:132} INFO - Sending 15 to group 19118. PIDs of all processes in the group: [19118]
+[2024-10-14T17:33:45.392+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 19118
+[2024-10-14T17:33:46.418+0000] {taskinstance.py:3092} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-10-14T17:33:55.920+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-14T17:33:56.791+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=19118, status='terminated', exitcode=0, started='17:30:33') (19118) terminated with exit code 0
+[2024-10-14T17:33:58.128+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics
