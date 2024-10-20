@@ -72,6 +72,7 @@ Los tests están diseñadas para validar las siguientes funciones principales:
 
 
 Continuous Integration:
+
 Este proyecto utiliza GitHub Actions para continuous integration. Los archivos .yaml incluyen:
     Linting con Flake8
     Tests con pytest
