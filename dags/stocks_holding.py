@@ -23,7 +23,7 @@ def execute_query():
         WITH last_value_ticker AS (
             SELECT date, ticker, close
             FROM (
-                SELECT date, ticker, close, 
+                SELECT date, ticker, close,
                        ROW_NUMBER() OVER (PARTITION BY ticker ORDER BY date DESC) AS row_n
                 FROM pda."2024_felipe_miguel_reto_schema".stocks_prices_daily
             ) AS subquery
