@@ -2,6 +2,7 @@ import psycopg2
 from airflow.hooks.base import BaseHook
 from functools import wraps
 
+
 def redshift_connection(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -15,11 +16,9 @@ def redshift_connection(func):
                 port=redshift_conn.port
             )
             result = func(conn, *args, **kwargs)
-            conn.close() 
+            conn.close()
             return result
         except Exception as e:
             print(f"Error al conectar a Redshift: {e}")
             raise
     return wrapper
-
-

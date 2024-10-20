@@ -1,6 +1,7 @@
 import psycopg2
 from airflow.hooks.base import BaseHook
 
+
 def execute_query():
     try:
         redshift_conn = BaseHook.get_connection('redshift_conn')
@@ -37,13 +38,13 @@ def execute_query():
                ((s.close * t.nominal_quantity) / c.dolar_ccl) - (t.gross_cost / c.dolar_ccl) AS profit,
                ((s.close * t.nominal_quantity) / c.dolar_ccl) / (t.gross_cost / c.dolar_ccl) - 1 AS var_perc
         FROM pda."2024_felipe_miguel_reto_schema".stocks_transactions t
-        LEFT JOIN pda."2024_felipe_miguel_reto_schema".dolar_ccl c ON t."date" = c.fecha 
+        LEFT JOIN pda."2024_felipe_miguel_reto_schema".dolar_ccl c ON t."date" = c.fecha
         LEFT JOIN last_value_ticker s ON t.ticker = s.ticker
         );
         """
 
-        cur.execute(query) 
-        conn.commit()  
+        cur.execute(query)
+        conn.commit()
         cur.close()
         conn.close()
 
@@ -52,6 +53,3 @@ def execute_query():
     except Exception as e:
         print(f"Error al conectar o ejecutar la consulta en Redshift: {e}")
         raise
-
-
-
