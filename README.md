@@ -40,20 +40,20 @@ Para ejecutar el proyecto, sigue estos pasos:
 
 Uso:
 
-Una vez que la imagen de Docker está corriendo, se pueden iniciar los DAGs de Airflow para obtener y almacenar los datos de cotizaciones y CCL en Redshift. Los DAGs disponibles son:
+Una vez que la imagen de Docker está corriendo, se puede iniciar el DAG de Airflow para obtener y almacenar los datos de cotizaciones y CCL en Redshift. El DAG disponible es:
 
 - DAG para cargar cotizaciones: dag_cargar_cotizaciones
-- DAG para cargar CCL: dag_ccl
 
-Ambos DAGs están configurados para ejecutarse diariamente.
+Está configurado para ejecutarse diariamente
 
 
 Estructura de la Base de Datos:
 
-- Tabla de cotización de CCL:
-- Tabla de transacciones de acciones:
-- Tabla de precios de acciones diarios:
-- Tabla de tickers paramétrica:
+- Tabla de cotización de CCL: dolar_ccl
+- Tabla de transacciones de acciones: stocks_transactions
+- Tabla de precios de acciones diarios: stocks_prices_daily
+- Tabla de tickers paramétrica: param_ticker
+- Tabla de rendimiento de las transacciones: stocks_holding
 
 
 Tests:

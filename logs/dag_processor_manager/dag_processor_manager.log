@@ -44833,3 +44833,98 @@ File Path                                     PID    Runtime      # DAGs    # Er
 /opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.58s           2024-10-18T14:59:53                      12
 ================================================================================
 [2024-10-18T15:00:11.546+0000] {manager.py:468} INFO - Exiting gracefully upon receiving signal 15
+[2024-10-20T21:20:42.564+0000] {manager.py:486} INFO - Processing files using up to 2 processes at a time 
+[2024-10-20T21:20:42.565+0000] {manager.py:487} INFO - Process each file at most once every 30 seconds
+[2024-10-20T21:20:42.566+0000] {manager.py:488} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-10-20T21:20:42.566+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2024-10-20T21:20:42.641+0000] {manager.py:835} INFO - There are 1 files in /opt/airflow/dags
+[2024-10-20T21:20:42.823+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                       PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run      Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  ----------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py     64  0.05s             0           0                                                   0
+================================================================================
+[2024-10-20T21:21:12.971+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  2.11s           2024-10-20T21:20:44                      12
+================================================================================
+[2024-10-20T21:21:43.225+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.57s           2024-10-20T21:21:16                      12
+================================================================================
+[2024-10-20T21:22:14.128+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.36s           2024-10-20T21:21:48                      12
+================================================================================
+[2024-10-20T21:22:44.830+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.18s           2024-10-20T21:22:20                      12
+================================================================================
+[2024-10-20T21:23:15.169+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.82s           2024-10-20T21:22:53                      12
+================================================================================
+[2024-10-20T21:23:46.160+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.56s           2024-10-20T21:23:25                      12
+================================================================================
+[2024-10-20T21:24:16.852+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.86s           2024-10-20T21:23:58                      12
+================================================================================
+[2024-10-20T21:24:47.244+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  0.95s           2024-10-20T21:24:30                      12
+================================================================================
+[2024-10-20T21:25:18.202+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  1.04s           2024-10-20T21:25:02                      12
+================================================================================
+[2024-10-20T21:25:43.207+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2024-10-20T21:25:43.246+0000] {manager.py:835} INFO - There are 1 files in /opt/airflow/dags
+[2024-10-20T21:25:48.542+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_cargar_cotizaciones.py                           1           0  0.96s           2024-10-20T21:25:33                      12
+================================================================================
