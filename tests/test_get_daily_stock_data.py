@@ -17,7 +17,7 @@ def test_get_daily_stock_data(mocker):
     expected_data['Date'] = pd.to_datetime(expected_data['Date'])
 
     # Simulo los datos que devolvería yfinance
-    mock_yf_download = mocker.patch('functions.stocks_prices_daily.yf.download')
+    mock_yf_download = mocker.patch('functions.data_extraction.yf.download')
     mock_yf_download.return_value = pd.DataFrame({
         'Adj Close': [4550.0],
         'Close': [4550.0],
