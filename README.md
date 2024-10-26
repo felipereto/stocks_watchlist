@@ -91,7 +91,6 @@ Las funciones principales están organizadas en tres módulos para mejorar la es
 1. **`main_tasks.py`**:
    - **stocks_to_redshift**: Obtiene datos de cotización diarios para una lista de tickers de acciones desde Yahoo Finance y los carga en la tabla `stocks_prices_daily` en Redshift mediante la función `load_data_to_redshift`.
    - **ccl_to_redshift**: Obtiene el valor del tipo de cambio CCL para la fecha de ejecución y lo carga en la tabla `dolar_ccl` en Redshift mediante la función `load_data_to_redshift`.
-   - **execute_query**: Ejecuta una consulta en Redshift para calcular el rendimiento actual de las inversiones. Esta función inserta los resultados en la tabla `stocks_holding`.
 
 2. **`data_extraction.py`**:
    - **obtener_datos_dolar**: Recupera los datos de tipo de cambio CCL desde una API externa y los transforma en un DataFrame.
@@ -100,6 +99,7 @@ Las funciones principales están organizadas en tres módulos para mejorar la es
 3. **`redshift_operations.py`**:
    - **load_data_to_redshift**: Carga un DataFrame en una tabla de Redshift, utilizando una conexión segura mediante BaseHook en Airflow.
    - **redshift_connection**: Decorador que gestiona la conexión a Redshift, garantizando que la conexión se cierre adecuadamente. 
+   - **execute_query**: Ejecuta una consulta en Redshift para calcular el rendimiento actual de las inversiones. Esta función inserta los resultados en la tabla `stocks_holding`.
 
 
 ## Uso
@@ -187,11 +187,7 @@ Para ejecutar las pruebas con `poetry`, sigue estos pasos:
     poetry run pytest
     ```
 
-Los tests validan las siguientes funciones clave del proyecto:
-
-- **Conexión a las APIs** de Yahoo Finance y Cotización de CCL.
-- **Transformación de datos** antes de la ingesta en Redshift.
-- **Inserción de datos** en las tablas de Redshift.
+Los tests validan la **transformación de datos** antes de la ingesta en Redshift de las dos funciones de extracción que son get_daily_stock_data y obtener_datos_dolar.
 
 ## Continuous Integration
 
