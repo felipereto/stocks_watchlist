@@ -22,11 +22,11 @@ jobs:
 
       - name: Install dependencies with poetry
         run: |
-          cd Testing
+          cd tests
           poetry install
 
       - name: Run pytest
         run: |
-          cd Testing 
-          PYTHONPATH=.. poetry run pytest tests
+          cd tests 
+          PYTHONPATH=.. poetry run pytest
 

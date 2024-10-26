@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+logs/
+*.log
+tests/.pytest_cache
+tests/__pycache__/
+functions/__pycache__/
+dags/__pycache__/

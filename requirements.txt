@@ -5,5 +5,5 @@ requests==2.32.3
 yfinance==0.2.43
 SQLAlchemy==1.4.53
 sqlalchemy-redshift==0.8.14
-psycopg2-binary=2.9
+psycopg2-binary==2.9.6
 pytest-mock==3.14.0
