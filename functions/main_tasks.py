@@ -3,6 +3,7 @@ import json
 from data_extraction import obtener_datos_dolar, get_daily_stock_data
 from redshift_operations import load_data_to_redshift
 
+
 def ccl_to_redshift(**context):
     """
     Obtiene y carga datos del dólar CCL en Redshift.
@@ -14,6 +15,7 @@ def ccl_to_redshift(**context):
     df = obtener_datos_dolar(end_date)
     table_name = 'pda."2024_felipe_miguel_reto_schema".dolar_ccl'
     load_data_to_redshift(df, table_name)
+
 
 def stocks_to_redshift(**context):
     """

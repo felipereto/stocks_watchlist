@@ -4,6 +4,7 @@ from psycopg2.extras import execute_values
 from airflow.hooks.base import BaseHook
 from functools import wraps
 
+
 def redshift_connection(func):
     """
     Decorador para establecer y cerrar una conexión a Redshift.
@@ -32,11 +33,12 @@ def redshift_connection(func):
         return result
     return wrapper
 
+
 @redshift_connection
 def load_data_to_redshift(conn, df, tabla):
     """
     Carga un DataFrame en una tabla de Redshift.
-    
+ 
     Args:
         conn (psycopg2.connection): Conexión a Redshift.
         df (pd.DataFrame): DataFrame a cargar.
@@ -52,9 +54,10 @@ def load_data_to_redshift(conn, df, tabla):
     cur.close()
     logging.info("Carga de datos completada exitosamente.")
 
+
 def execute_query():
     logging.info("Iniciando ejecución de la consulta en Redshift.")
-    
+
     # Obtener la conexión a Redshift desde Airflow
     redshift_conn = BaseHook.get_connection('redshift_conn')
 
@@ -97,7 +100,7 @@ def execute_query():
     logging.info("Ejecutando consulta SQL en Redshift.")
     cur.execute(query)
     conn.commit()
-    
+
     # Cerrar cursor y conexión
     cur.close()
     conn.close()

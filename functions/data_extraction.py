@@ -3,6 +3,7 @@ import pandas as pd
 import yfinance as yf
 import os
 
+
 def obtener_datos_dolar(period_date):
     """
     Obtiene los datos del dólar CCL para una fecha específica.
@@ -22,6 +23,7 @@ def obtener_datos_dolar(period_date):
     df = pd.DataFrame(data[1:], columns=['fecha', 'dolar_ccl'])
     df['fecha'] = pd.to_datetime(df['fecha'], format='%d/%m/%Y').dt.strftime('%Y-%m-%d')
     return df
+
 
 def get_daily_stock_data(start_date, end_date, tickers):
     """
