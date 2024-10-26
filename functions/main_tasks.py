@@ -7,7 +7,7 @@ from redshift_operations import load_data_to_redshift
 def ccl_to_redshift(**context):
     """
     Obtiene y carga datos del dólar CCL en Redshift.
-    
+
     Args:
         **context: Contexto de ejecución de Airflow.
     """
@@ -20,7 +20,7 @@ def ccl_to_redshift(**context):
 def stocks_to_redshift(**context):
     """
     Descarga datos de acciones y los carga en Redshift.
-    
+
     Args:
         **context: Contexto de ejecución de Airflow.
     """

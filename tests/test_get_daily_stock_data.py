@@ -1,5 +1,5 @@
 import pandas as pd
-from functions.main_tasks import get_daily_stock_data
+from functions.data_extraction import get_daily_stock_data
 
 
 def test_get_daily_stock_data(mocker):

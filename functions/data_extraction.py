@@ -7,10 +7,10 @@ import os
 def obtener_datos_dolar(period_date):
     """
     Obtiene los datos del dólar CCL para una fecha específica.
-    
+
     Args:
         period_date (str): Fecha en formato 'YYYY-MM-DD'.
-    
+
     Returns:
         pd.DataFrame: DataFrame con columnas ['fecha', 'dolar_ccl'].
     """
@@ -28,12 +28,12 @@ def obtener_datos_dolar(period_date):
 def get_daily_stock_data(start_date, end_date, tickers):
     """
     Descarga datos diarios de acciones de Yahoo Finance.
-    
+
     Args:
         start_date (str): Fecha de inicio en formato 'YYYY-MM-DD'.
         end_date (str): Fecha de fin en formato 'YYYY-MM-DD'.
         tickers (list): Lista de tickers a descargar.
-    
+
     Returns:
         pd.DataFrame: DataFrame con los datos diarios de las acciones.
     """

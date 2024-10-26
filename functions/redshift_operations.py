@@ -8,10 +8,10 @@ from functools import wraps
 def redshift_connection(func):
     """
     Decorador para establecer y cerrar una conexión a Redshift.
-    
+
     Args:
         func (function): Función a decorar, que recibe 'conn' como primer argumento.
-    
+
     Returns:
         function: La función decorada con una conexión a Redshift.
     """
@@ -38,7 +38,7 @@ def redshift_connection(func):
 def load_data_to_redshift(conn, df, tabla):
     """
     Carga un DataFrame en una tabla de Redshift.
- 
+
     Args:
         conn (psycopg2.connection): Conexión a Redshift.
         df (pd.DataFrame): DataFrame a cargar.

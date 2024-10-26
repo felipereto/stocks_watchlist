@@ -1,5 +1,5 @@
 import pandas as pd
-from functions.main_tasks import obtener_datos_dolar
+from functions.data_extraction import obtener_datos_dolar
 
 
 def test_obtener_datos_dolar(mocker):
